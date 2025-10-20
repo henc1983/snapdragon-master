@@ -8,6 +8,16 @@
 
 
 
+if ( ! function_exists( 'snapdragon_is_woocommerce_activated' ) ) {
+    // Query WooCommerce activation
+	function snapdragon_is_woocommerce_activated() {
+		return class_exists( 'WooCommerce' ) ? true : false;
+	}
+}
+
+
+
+
 if ( ! function_exists( 'wp_body_open' ) ) {
 	/**
 	 * Adds backwards compatibility for wp_body_open() introduced with WordPress 5.2
