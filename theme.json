@@ -1,0 +1,94 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 3,
+    "settings": {
+        "layout": {
+            "contentSize": "1280px",
+            "wideSize": "1400px"
+        },
+        "color": {
+            "defaultGradients": false,
+            "gradients": [
+                {
+                    "name": "Linear",
+                    "slug": "linear",
+                    "gradient": ""
+                }
+            ],
+            "palette": [
+                {
+                    "color": "#f1f1f1",
+                    "name": "Base",
+                    "slug": "base"
+                },
+                {
+                    "color": "#27272A",
+                    "name": "Contrast",
+                    "slug": "contrast"
+                },
+                {
+                    "color": "#09090B",
+                    "name": "Heading",
+                    "slug": "heading"
+                },
+                {
+                    "color": "#db2777",
+                    "name": "Primary",
+                    "slug": "primary"
+                },
+                {
+                    "color": "#1E293B",
+                    "name": "Secondary",
+                    "slug": "secondary"
+                }
+            ]
+        },
+        "typography": {
+            "lineHeight": true,
+            "textTransform": true,
+            "fontFamilies": [
+                {
+                    "fontFamily": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                    "name": "Primary",
+                    "slug": "primary"
+                }
+            ],
+            "fluid": true,
+            "fontSizes": [
+                {
+                    "name": "Small",
+                    "size": "0.875rem",
+                    "slug": "small"
+                },
+                {
+                    "name": "Normal",
+                    "size": "1rem",
+                    "slug": "normal"
+                },
+                {
+                    "name": "Medium",
+                    "size": "1.5rem",
+                    "slug": "medium"
+                
+                },
+                {
+                    "name": "Large",
+                    "size": "2rem",
+                    "slug": "large"
+                
+                },
+                {
+                    "name": "Extra Large",
+                    "size": "2.5rem",
+                    "slug": "xlarge"
+                
+                },
+                {
+                    "name": "Huge",
+                    "size": "3.5rem",
+                    "slug": "huge"
+                }
+            ]
+        }
+    }
+}
