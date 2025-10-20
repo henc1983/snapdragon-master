@@ -235,3 +235,22 @@ if ( ! function_exists( 'snapdragon_hue_to_rgb' ) ) {
         return $temp1;
     }
 }
+
+
+
+if ( ! function_exists( 'snapdragon_post_thumbnail' ) ) {
+	/**
+	 * Display post thumbnail
+	 *
+	 * @var $size thumbnail size. thumbnail|medium|large|full|$custom
+	 * @uses has_post_thumbnail()
+	 * @uses the_post_thumbnail
+	 * @param string $size the post thumbnail size.
+	 * @since 1.5.0
+	 */
+	function snapdragon_post_thumbnail( $size = 'full' ) {
+		if ( has_post_thumbnail() ) {
+			the_post_thumbnail( $size );
+		}
+	}
+}

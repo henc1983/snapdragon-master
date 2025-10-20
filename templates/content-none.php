@@ -14,7 +14,6 @@ defined('ABSPATH') or die('No script kiddies please!');
 <article class="page type-page no-result not-found">
 
     <header class="page-header">
-        <img src="" alt="<?php esc_attr_e( '404 Error', 'snapdragon' ); ?>">
         <h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'snapdragon' ); ?></h1>
     </header>
 
