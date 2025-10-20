@@ -35,5 +35,5 @@ get_header();
 </div>
 
 <?php
-
+do_action( 'snapdragon_sidebar' );
 get_footer();
