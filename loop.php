@@ -23,3 +23,9 @@ while ( have_posts() ) :
 	get_template_part( 'templates/content', get_post_format() );
 
 endwhile;
+
+/**
+ * Functions hooked in to snapdragon_paging_nav action
+ * @hooked snapdragon_paging_nav - 10
+ */
+do_action( 'snapdragon_loop_after' );
