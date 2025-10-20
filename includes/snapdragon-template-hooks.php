@@ -20,6 +20,10 @@ add_action( 'snapdragon_page' , 'snapdragon_page_header' , 10 );
 add_action( 'snapdragon_page' , 'snapdragon_page_content' , 20 );
 add_action( 'snapdragon_page_after' , 'snapdragon_display_comments' , 10 );
 
+add_action( 'snapdragon_homepage' , 'snapdragon_page_header' , 10 );
+add_action( 'snapdragon_homepage' , 'snapdragon_page_content' , 20 );
+
+
 
 
 /**

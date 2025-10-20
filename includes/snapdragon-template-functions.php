@@ -22,7 +22,11 @@ if ( ! function_exists( 'snapdragon_page_header' ) ) {
 		?>
 		<header class="entry-header">
 			<?php
-			snapdragon_post_thumbnail( 'full' );
+
+			if ( ! is_page_template( 'template-homepage.php' ) ) {
+				snapdragon_post_thumbnail( 'full' );
+			}
+
 			the_title( '<h1 class="entry-title">', '</h1>' );
 			?>
 		</header>
