@@ -10,6 +10,14 @@ defined('ABSPATH') or die('No script kiddies please!');
 
 
 /**
+ * Theme Important Hooks
+ */
+add_action( 'wp_head_meta' , 'snapdragon_google_site_verification' , 10 );
+add_action( 'wp_head_meta' , 'snapdragon_barion_code_inject' , -1 );
+
+
+
+/**
  * Pages
  *
  * @see  snapdragon_page_header()

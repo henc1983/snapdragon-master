@@ -18,3 +18,5 @@ require_once  THEME_DIR . '/includes/snapdragon-functions.php';
 // Include template hooks
 require_once  THEME_DIR . '/includes/snapdragon-template-functions.php';
 require_once  THEME_DIR . '/includes/snapdragon-template-hooks.php';
+
+require_once  THEME_DIR . '/includes/helpers/options-class.php';

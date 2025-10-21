@@ -17,6 +17,14 @@ if ( ! function_exists( 'snapdragon_is_woocommerce_activated' ) ) {
 
 
 
+if ( ! function_exists( 'wp_head_meta' ) ) {
+	// Adds backwards compatibility for wp_head_meta() introduced with Snapdragon 1.0
+	function wp_head_meta() {
+		do_action( 'wp_head_meta' );
+	}
+}
+
+
 
 if ( ! function_exists( 'wp_body_open' ) ) {
 	/**

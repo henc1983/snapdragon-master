@@ -9,6 +9,66 @@ defined('ABSPATH') or die('No script kiddies please!');
 
 
 
+if ( ! function_exists( 'snapdragon_google_site_verification' ) ) {
+	/**
+	 * Inject google datas to <head> meta
+	 * @since 1.0
+	 */
+	function snapdragon_google_site_verification() {
+		
+		$verification = get_option( 'snapdragon_google_verification' , [ 'meta' => 'D2qQKJUQ9kPwNYZI5PFhqoXEXd1hap1WrBz_Vv51tjk' , 'script' => 'ca-pub-4690077027254207'] );
+
+		?>
+			<meta name="google-site-verification" content="<?php esc_attr_e( $verification[ 'meta' ] )?>" />
+			<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=<?php esc_attr_e( $verification[ 'script' ] )?>"
+			crossorigin="anonymous"></script>
+		<?php
+	}
+}
+
+
+
+if ( ! function_exists( 'snapdragon_barion_code_inject' ) ) {
+	/**
+	 * Inject barion code to <head>
+	 * @since 1.0
+	 */
+	function snapdragon_barion_code_inject() {
+
+				
+		if ( is_home() || is_front_page() ) {
+			return;
+		}
+
+		?>
+		<script>
+			// Create BP element on the window
+			window["bp"] = window["bp"] || function () {
+				(window["bp"].q = window["bp"].q || []).push(arguments);
+			};
+			window["bp"].l = 1 * new Date();
+
+			// Insert a script tag on the top of the head to load bp.js
+			scriptElement = document.createElement("script");
+			firstScript = document.getElementsByTagName("script")[0];
+			scriptElement.async = true;
+			scriptElement.src = 'https://pixel.barion.com/bp.js';
+			firstScript.parentNode.insertBefore(scriptElement, firstScript);
+			window['barion_pixel_id'] = '<?php esc_attr_e(get_option( 'snapdragon_barion_pixel_id' , '' ))?>';            
+
+			// Send init event
+			bp('init', 'addBarionPixelId', window['barion_pixel_id']);
+		</script>
+
+		<noscript>
+			<img height="1" width="1" style="display:none" alt="Barion Pixel" src="https://pixel.barion.com/a.gif?ba_pixel_id='<?php esc_attr_e(get_option( 'snapdragon_barion_pixel_id' , '' ))?>'&ev=contentView&noscript=1">
+		</noscript>
+		<?php
+	}
+}
+
+
+
 if ( ! function_exists( 'snapdragon_page_header' ) ) {
 	/**
 	 * Display the page header
