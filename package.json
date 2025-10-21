@@ -10,20 +10,28 @@
   ],
   "license": "ISC",
   "author": "Makai Henrik",
-  "type": "commonjs",
   "main": "index.js",
-  "scripts": {},
-  "devDependencies": {
-    "gulp": "^5.0.1",
-    "gulp-babel": "^8.0.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-rename": "^2.1.0",
-    "gulp-sass": "^6.0.1",
-    "gulp-sourcemaps": "^3.0.0",
-    "gulp-terser": "^2.1.0",
-    "sass": "^1.93.2"
+  "scripts": {
+    "webpack": "webpack --mode development",
+    "webpack:build": "webpack --no-watch --mode production --define-process-env-node-env production",
+    "webpack:content": "webpack --watch --mode development --env content",
+    "webpack:admin": "webpack --watch --mode development --env admin",
+    "tailwindcss": "npx @tailwindcss/cli -i ./tailwind.css -o ./assets/styles/style.css --watch"
   },
-  "dependencies": {
-    "bootstrap": "5.3.x"
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.15",
+    "css-loader": "^7.1.2",
+    "mini-css-extract-plugin": "^2.9.4",
+    "postcss": "^8.5.6",
+    "postcss-loader": "^8.2.0",
+    "postcss-nested": "^7.0.2",
+    "postcss-preset-env": "^10.4.0",
+    "sass": "^1.93.2",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^4.1.15",
+    "tailwindcss-cli": "^0.1.2",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1"
   }
 }

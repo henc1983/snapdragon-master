@@ -65,6 +65,26 @@ if ( ! class_exists( 'SnapdragonOptions' ) ) {
                 update_option( 'snapdragon_theme_settings' , $this::IMPORTANT_OPTIONS_PAIRS );
             }
             
+            return $this;
+        }
+
+
+
+        public function get_option( $name , $parent = null, $child = null ) {
+
+            if ( in_array( $name , array_keys( $this::IMPORTANT_OPTIONS_PAIRS ) ) && $parent === null ) {
+                return $this->options[ $name ];
+            }
+            
+            if ( in_array( $parent , array_keys( $this::IMPORTANT_OPTIONS_PAIRS ) ) && in_array( $name , array_keys( $this::IMPORTANT_OPTIONS_PAIRS[$parent] ) ) && $child === null ) {
+                return $this->options[$parent][ $name ];    
+            }
+            
+            if ( in_array( $child , array_keys( $this::IMPORTANT_OPTIONS_PAIRS[$parent] ) ) && in_array( $name , array_keys( $this::IMPORTANT_OPTIONS_PAIRS[$parent][$child] ) ) ) {
+                return $this->options[$parent][$child][$name];
+            }
+
+            return null;
         }
     }
 }

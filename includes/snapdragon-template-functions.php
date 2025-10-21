@@ -9,6 +9,19 @@ defined('ABSPATH') or die('No script kiddies please!');
 
 
 
+if ( ! function_exists( 'snapdragon_main_header_navigation_before' ) ) {
+	
+	function snapdragon_main_header_navigation_before() {
+		?>
+			<header id="snapdragon-main-header">
+				<p>HEADER</p>
+			</header>
+		<?php
+	}
+}
+
+
+
 if ( ! function_exists( 'snapdragon_google_site_verification' ) ) {
 	/**
 	 * Inject google datas to <head> meta

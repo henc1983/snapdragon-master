@@ -28,7 +28,7 @@
         
     <?php wp_body_open(); ?>
 
+    <?php snapdragon_main_header(); ?>
 
-
-    <div id="page" class="site">
+    <div id="page" class="site px-4">
         <div id="content" class="site-content" tabindex="-1">

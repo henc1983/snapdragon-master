@@ -19,4 +19,11 @@ require_once  THEME_DIR . '/includes/snapdragon-functions.php';
 require_once  THEME_DIR . '/includes/snapdragon-template-functions.php';
 require_once  THEME_DIR . '/includes/snapdragon-template-hooks.php';
 
-require_once  THEME_DIR . '/includes/helpers/options-class.php';
+$my_options = require_once  THEME_DIR . '/includes/helpers/options-class.php';
+
+
+add_action( 'wp_enqueue_scripts' , 'snapdragon_enqueue_scripts' );
+
+function snapdragon_enqueue_scripts() {
+    wp_enqueue_style('my_style', get_template_directory_uri() . '/assets/styles/style.css');
+}

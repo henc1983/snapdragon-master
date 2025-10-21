@@ -10,6 +10,14 @@ defined('ABSPATH') or die('No script kiddies please!');
 
 
 /**
+ * Theme Main Header
+ */
+add_action( 'snapdragon_main_header' , 'snapdragon_main_header_navigation_before' , 0 );
+// add_action( 'snapdragon_main_header' , 'snapdragon_main_header_navigation_after' , 20 );
+
+
+
+/**
  * Theme Important Hooks
  */
 add_action( 'wp_head_meta' , 'snapdragon_google_site_verification' , 10 );
