@@ -1,1 +1,95 @@
-@import "tailwindcss";
+@import "tailwindcss" important;
+
+
+@theme {
+    --spacing-8xl: 87.5rem;
+    --color-base: #f1f1f1;
+    --color-primary: #db2777;
+    --ease-bounce: cubic-bezier(.47,1.64,.41,.8);
+}
+
+@layer utilities {
+    .bars {
+        @apply flex flex-col justify-center items-center;
+    }
+    
+    .bar {
+        @apply w-[.875em] h-[2px] bg-black/50 group-hover:bg-primary transition-colors duration-200;
+    }
+
+    .flex-center {
+        @apply flex justify-center items-center;
+    }
+
+    .page-title {
+        @apply font-black text-4xl leading-none;
+    }
+
+    svg {
+        @apply h-[1em] max-w-[1.5em]
+    }
+
+    button, .button {
+        @apply cursor-pointer px-6 py-2 flex justify-center items-center gap-1 transition-colors duration-200 text-black/60
+    }
+
+}
+
+
+@layer components {
+    .search-wrapper {
+        @apply flex items-center rounded-md bg-white transition-all duration-300 outline-3 -outline-offset-2 outline-transparent relative before:absolute border-b-3 border-primary/50
+        has-[input:focus-within]:outline-primary/50
+    }
+    .search-submit-button {
+        @apply w-full appearance-none rounded-md py-2.5 px-4 text-base text-gray-500 placeholder:text-gray-400 sm:text-sm/6
+    }
+
+    .header-news-text {
+        @apply flex flex-col py-3 px-6 text-wrap font-black text-lg text-white text-shadow-lg relative before:absolute before:inset-0 before:bg-linear-to-br before:from-emerald-400 before:to-emerald-700 before:block before:-z-10 before:p-6 before:-rotate-5 before:drop-shadow-md before:drop-shadow-black/50
+    }
+
+    .infoline-link {
+        @apply cursor-pointer flex flex-nowrap items-center gap-1 transition-colors duration-200 text-black/70 hover:bg-white/20;
+        text-decoration: none!important;
+    }
+
+    .nav-list {
+        @apply pl-0 m-0 list-none flex items-center flex-nowrap h-full;
+    }
+
+    .nav-link {
+        @apply cursor-pointer px-6 py-2 flex justify-center items-center gap-1.5 transition-colors duration-200 text-white/80 hover:bg-white/20 text-shadow-sm text-shadow-primary/70;
+        text-decoration: none!important;
+    }
+
+    .nav-footer {
+        @apply w-full bg-linear-to-r from-base from-0% via-40% via-primary to-100% to-primary/70;
+    }
+
+    .snapdragon-site-logo {
+        @apply max-h-[60px] h-[60px] transition-all scale-100 hover:scale-110 duration-[400ms] ease-(--ease-bounce)
+    }
+
+    #snapdragon-navmenu-toggle {
+        @apply  bg-linear-to-r text-black/60 from-white/20 to-white/50 hover:from-white/50 hover:to-white/80 hover:text-primary/70
+    }
+
+    .section-side {
+        @apply w-full flex flex-nowrap gap-4 items-center flex-1
+    }
+
+    .preloader {
+        @apply fixed inset-0 flex justify-center items-center backdrop-blur-xs bg-white/10 transition transition-discrete duration-150 opacity-100
+    }
+    .preloader.hide {
+        @apply opacity-0 backdrop-blur-none hidden
+    }
+
+    .header-section {
+        @apply w-full max-w-8xl mx-auto flex flex-nowrap px-8
+    }
+
+    
+
+}

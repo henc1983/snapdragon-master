@@ -1,6 +1,7 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
+  importsnt: true,
   purge: [
     './*.*',
     './*.php',
@@ -21,19 +22,19 @@ module.exports = {
       '2xl': '1536px',
     },
     colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
+        transparent: 'transparent',
+        current: 'currentColor',
 
-      black: colors.black,
-      white: colors.white,
-      gray: colors.coolGray,
-      red: colors.red,
-      yellow: colors.amber,
-      green: colors.emerald,
-      blue: colors.blue,
-      indigo: colors.indigo,
-      purple: colors.violet,
-      pink: colors.pink,
+        black: colors.black,
+        white: colors.white,
+        gray: colors.coolGray,
+        red: colors.red,
+        yellow: colors.amber,
+        green: colors.emerald,
+        blue: colors.blue,
+        indigo: colors.indigo,
+        purple: colors.violet,
+        pink: colors.pink,
     },
     spacing: {
       px: '1px',
@@ -538,6 +539,7 @@ module.exports = {
       '5xl': '64rem',
       '6xl': '72rem',
       '7xl': '80rem',
+      '8xl': '87.5rem',
       full: '100%',
       min: 'min-content',
       max: 'max-content',

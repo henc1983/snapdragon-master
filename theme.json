@@ -7,14 +7,6 @@
             "wideSize": "1400px"
         },
         "color": {
-            "defaultGradients": false,
-            "gradients": [
-                {
-                    "name": "Linear",
-                    "slug": "linear",
-                    "gradient": ""
-                }
-            ],
             "palette": [
                 {
                     "color": "#f1f1f1",

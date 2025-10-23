@@ -8,7 +8,16 @@
 
 
 
-if ( ! function_exists( 'snapdragon_main_header()' ) ) {
+if ( ! function_exists( 'snapdragon_get_custom_logo' ) ) {
+	function snapdragon_get_custom_logo() {
+		do_action( 'snapdragon_custom_logo' );
+	}
+}
+
+
+
+
+if ( ! function_exists( 'snapdragon_main_header' ) ) {
     // Header Navigation content
 	function snapdragon_main_header() {
 		do_action( 'snapdragon_main_header' );

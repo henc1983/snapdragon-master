@@ -24,11 +24,11 @@
         <?php wp_head(); ?>
     </head>
 
-    <body <?php body_class(); ?>>
+    <body <?php body_class('w-screen overflow-x-hidden bg-base'); ?>>
         
     <?php wp_body_open(); ?>
 
     <?php snapdragon_main_header(); ?>
 
-    <div id="page" class="site px-4">
+    <div id="page" class="site">
         <div id="content" class="site-content" tabindex="-1">

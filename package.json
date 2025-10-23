@@ -8,6 +8,9 @@
     "theme",
     "woocommerce"
   ],
+  "imports": {
+      "#tailwind.css": "./assets/styles/style.css"
+  },
   "license": "ISC",
   "author": "Makai Henrik",
   "main": "index.js",
