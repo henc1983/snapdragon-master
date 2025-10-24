@@ -16,10 +16,10 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack --mode development",
-    "webpack:build": "webpack --no-watch --mode production --define-process-env-node-env production",
+    "webpack:build": "webpack --no-watch --mode production --env production",
     "webpack:content": "webpack --watch --mode development --env content",
     "webpack:admin": "webpack --watch --mode development --env admin",
-    "tailwindcss": "npx @tailwindcss/cli -i ./tailwind.css -o ./assets/styles/style.css --watch"
+    "tailwindcss": "npx @tailwindcss/cli -i ./tailwind.css -o ./assets/styles/style.css --watch --minify"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.15",

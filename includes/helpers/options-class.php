@@ -10,8 +10,10 @@
 if ( ! class_exists( 'SnapdragonOptions' ) ) {
     class SnapdragonOptions {
 
+        private static $instance = null;
+
         private $options;
-        
+
         private const IMPORTANT_OPTIONS_PAIRS = [
             'enabled_languages'                             => [ 'hu_HU', 'en_US' ] ,
             'google_verification'                           => [ 'meta' => 'D2qQKJUQ9kPwNYZI5PFhqoXEXd1hap1WrBz_Vv51tjk' , 'script' => 'ca-pub-4690077027254207' ],
@@ -58,6 +60,18 @@ if ( ! class_exists( 'SnapdragonOptions' ) ) {
             ],
         ];
 
+
+
+        public static function instance() {
+			if ( self::$instance === null ) {
+				self::$instance = new self();
+			}
+
+			return self::$instance;
+		}
+
+
+
         public function __construct() {
             $this->options = get_option( 'snapdragon_theme_settings' , []);
 
@@ -89,4 +103,4 @@ if ( ! class_exists( 'SnapdragonOptions' ) ) {
     }
 }
 
-return new SnapdragonOptions();
+return SnapdragonOptions::instance();

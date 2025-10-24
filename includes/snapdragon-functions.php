@@ -7,13 +7,11 @@
 
 
 
-
 if ( ! function_exists( 'snapdragon_get_custom_logo' ) ) {
 	function snapdragon_get_custom_logo() {
 		do_action( 'snapdragon_custom_logo' );
 	}
 }
-
 
 
 
@@ -23,7 +21,6 @@ if ( ! function_exists( 'snapdragon_main_header' ) ) {
 		do_action( 'snapdragon_main_header' );
 	}
 }
-
 
 
 
@@ -56,6 +53,32 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 	function wp_body_open() {
 		do_action( 'wp_body_open' );
 	}
+}
+
+
+
+if ( ! function_exists( 'snapdragon_nav_menu_id' ) ) {
+	function snapdragon_nav_menu_id( $id ) {
+		$locations = get_nav_menu_locations();
+        $menu_id = $locations[$id];
+        return !empty($menu_id) ? $menu_id : '';
+	}
+}
+
+
+
+if ( ! function_exists( 'snapdragon_child_menu_items' ) ) {
+	function snapdragon_child_menu_items(array $menu, $parent_id) {
+        $child_menus = [];
+        if (!empty($menu) && is_array($menu)) {
+            foreach ($menu as $child) {
+                if (intval($child->menu_item_parent == $parent_id)) {
+                    array_push($child_menus, $child);
+                }
+            }
+        }
+        return $child_menus;
+    }
 }
 
 

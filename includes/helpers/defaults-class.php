@@ -7,8 +7,8 @@
 
 
 
-if ( ! class_exists( 'SnapdragonDefault' ) ) {
-    class SnapdragonDefault {
+if ( ! class_exists( 'SnapdragonDefaults' ) ) {
+    class SnapdragonDefaults {
 
 
 
@@ -113,4 +113,4 @@ if ( ! class_exists( 'SnapdragonDefault' ) ) {
     }
 }
 
-return new SnapdragonDefault();
+return SnapdragonDefaults::instance();

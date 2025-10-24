@@ -95,18 +95,44 @@ if ( ! function_exists( 'snapdragon_main_header_navmenu_menuitems' ) ) {
 		
 		<nav id="main-menu">
 			<ul class="nav-list">
-				<li>
-					<a class="nav-link" href="">Akciók</a>
-				</li>
-				<li>
-					<a class="nav-link" href="">Kapcsolat</a>
-				</li>
-				<li>
-					<a class="nav-link" href="">Hogyan készült</a>
-				</li>
-				<li>
-					<a class="nav-link" href="">Blog</a>
-				</li>
+
+				<?php 
+					if ( !is_front_page() ) {
+						get_template_part( 'template-parts/components/nav' , 'link' , [ 'item'=>(object)[
+							'ID' => 'homeurl',
+							'url' => home_url(),
+							'title' => __( 'Kezdőlap' , 'snapdragon' ),
+						] ] );
+					}
+				?>
+
+				<?php 
+					if( has_nav_menu('menu-1') ) :
+						$menu_id = snapdragon_nav_menu_id( 'menu-1' );
+						$header_menus = wp_get_nav_menu_items( $menu_id );
+
+						if( ! empty(  $header_menus ) && is_array( $header_menus ) ) :
+							foreach( $header_menus as $item ) :
+								if( ! $item->menu_item_parent ) :
+
+									$child_items = snapdragon_child_menu_items( $header_menus , $item->ID );
+									$has_children = !empty(  $child_items ) && is_array( $child_items );
+
+									if( ! $has_children ) :
+
+										get_template_part( 'template-parts/components/nav' , 'link' , [ 'item'=>$item ] );
+										
+									else :
+											
+										get_template_part( 'template-parts/components/nav' , 'dropdown' , [ 'item'=>$item , 'children'=>$child_items ] );
+
+									endif;    // if( ! $has_children )
+								endif;    // if( ! $item->menu_item_parent )
+							endforeach;   // foreach( $header_menus as $item )
+						endif;   // if( ! empty(  $header_menus ) && is_array( $header_menus ) )
+					endif;    // if( has_nav_menu('menu-1') )
+				
+				?>
 			</ul>
 		</nav>
 

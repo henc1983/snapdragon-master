@@ -30,7 +30,7 @@
     }
 
     button, .button {
-        @apply cursor-pointer px-6 py-2 flex justify-center items-center gap-1 transition-colors duration-200 text-black/60
+        @apply cursor-pointer px-6 py-2 flex justify-center items-center gap-1 transition-colors duration-200
     }
 
 }
@@ -38,8 +38,8 @@
 
 @layer components {
     .search-wrapper {
-        @apply flex items-center rounded-md bg-white transition-all duration-300 outline-3 -outline-offset-2 outline-transparent relative before:absolute border-b-3 border-primary/50
-        has-[input:focus-within]:outline-primary/50
+        @apply flex items-center rounded-md bg-white transition-all duration-300 ring-2 ring-transparent relative before:absolute border-b-2 border-primary/70
+        has-[input:focus-within]:ring-primary/30
     }
     .search-submit-button {
         @apply w-full appearance-none rounded-md py-2.5 px-4 text-base text-gray-500 placeholder:text-gray-400 sm:text-sm/6
@@ -59,12 +59,12 @@
     }
 
     .nav-link {
-        @apply cursor-pointer px-6 py-2 flex justify-center items-center gap-1.5 transition-colors duration-200 text-white/80 hover:bg-white/20 text-shadow-sm text-shadow-primary/70;
+        @apply cursor-pointer px-6 py-2 flex justify-center items-center gap-1.5 transition-colors duration-200 text-white/90 hover:bg-white/20 text-shadow-sm text-shadow-primary/70;
         text-decoration: none!important;
     }
 
     .nav-footer {
-        @apply w-full bg-linear-to-r from-base from-0% via-40% via-primary to-100% to-primary/70;
+        @apply w-full bg-linear-to-r from-base from-0% via-30% via-primary to-100% to-primary/70;
     }
 
     .snapdragon-site-logo {
@@ -72,7 +72,7 @@
     }
 
     #snapdragon-navmenu-toggle {
-        @apply  bg-linear-to-r text-black/60 from-white/20 to-white/50 hover:from-white/50 hover:to-white/80 hover:text-primary/70
+        @apply  bg-linear-to-r text-black/60 from-white/40 to-white/50 hover:from-white/60 hover:to-white/80 hover:text-primary/70
     }
 
     .section-side {
@@ -90,6 +90,19 @@
         @apply w-full max-w-8xl mx-auto flex flex-nowrap px-8
     }
 
-    
+    .dropdown .content {
+        @apply hidden absolute bg-base backdrop-blur-md min-w-40 z-1 shadow-xl shadow-black/20 opacity-0 translate-y-1/4 transition-all duration-400 ;
+    }
 
+    .dropdown-item {
+        @apply min-w-44 text-black/60 text-shadow-none py-3 hover:bg-linear-to-r border-b-2 border-b-transparent hover:bg-primary/5 hover:border-b-primary/50
+    }
+
+    .dropdown .toggle {
+        @apply group-[.active]:bg-white/20
+    }
+
+    .dropdown .icon {
+        @apply  transition-transform duration-400 pointer-events-none
+    }
 }

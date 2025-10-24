@@ -43,30 +43,31 @@ const config = {
 
 
 
-const configTailwindCSS = Object.assign({}, config, {
-    name: "configTailwindCSS",
+const configContent = Object.assign({}, config, {
+    name: "configContent",
     entry: {
-        'tailwindcss': './index.js'
+        'main-desktop': ['./src/scripts/dropdown-navitem.js'],
     },
-    plugins: [ new MiniCssExtractPlugin({filename: "../styles/style.css"}) ],
+    plugins: [new MiniCssExtractPlugin(
+        {
+            filename: isProduction ? "../styles/[name].min.css" : "../styles/[name].css"
+        }
+    )],
     output: {
-        filename: isProduction ? '[name].min.js' : '[name].js',
+        filename: isProduction ? "[name].min.js" : "[name].js",
         path: path.resolve(__dirname, 'assets/scripts')
     },
 
 });
 
 
-
 module.exports = (env) => {
 	switch(true) {
 		// case env.admin:
 		// 	return configAdmin;
-		// case env.content:
-		// 	return configContent;
-		case env.tailwindcss:
-			return configTailwindCSS;
+		case env.content:
+			return configContent;
 		default:
-			return [ configTailwindCSS ];
+			return [ configContent ];
 	}
 };
