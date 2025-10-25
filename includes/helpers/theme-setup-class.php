@@ -26,6 +26,8 @@ if ( ! class_exists( 'SnapdragonThemeSetup' ) ) {
 
         public function __construct() {    
 
+            add_action( 'init' ,   				[ $this , 'set_important_cookies' ] , 0 );
+
             add_action( 'after_setup_theme' ,   [ $this , 'custom_logo' ] );        
             add_action( 'after_setup_theme' ,   [ $this , 'enable_theme_supports' ] );
             add_action( 'after_setup_theme' ,   [ $this , 'load_theme_textdomains' ] );
@@ -35,6 +37,45 @@ if ( ! class_exists( 'SnapdragonThemeSetup' ) ) {
 
             return $this;
         }
+
+
+
+        public function set_important_cookies() {
+			global $snapdragon;
+
+			if( is_object($snapdragon) 
+				&& property_exists( $snapdragon , 'defaults' )
+				&& is_a( $snapdragon->defaults , 'SnapdragonDefaults' )
+				&& is_a( $snapdragon->cookies , 'SnapdragonCookies')
+			 ) {
+
+				if( ! headers_sent() ) {
+					$count = 0;
+	
+					foreach( $snapdragon->defaults::IMPORTANT_COOKIE_PAIRS as $name => $default_value ) {
+						if( $snapdragon->cookies->get_cookie( $name ) === null ) {
+							$snapdragon->cookies->set_cookie( $name , $default_value );
+						}
+	
+						$count++;
+					}
+					
+					if ( $count < 0 ) {
+						snapdragon_reload_page();
+					}
+				}
+
+			}
+			
+
+
+			
+			
+			else {
+				die( __( 'Main theme object ($snapdragon) or parts are missing!' , 'snapdragon' ) );
+			}
+			
+		}
 
 
 

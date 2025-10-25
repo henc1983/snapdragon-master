@@ -24,7 +24,7 @@
         <?php wp_head(); ?>
     </head>
 
-    <body <?php body_class('w-screen overflow-x-hidden bg-base'); ?>>
+    <body <?php body_class('w-screen bg-base'); ?>>
         
     <?php wp_body_open(); ?>
 

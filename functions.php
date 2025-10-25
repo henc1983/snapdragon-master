@@ -21,3 +21,7 @@ $snapdragon = require_once THEME_DIR . '/includes/class-snapdragon.php';
 // Include template hooks
 require_once  THEME_DIR . '/includes/snapdragon-template-functions.php';
 require_once  THEME_DIR . '/includes/snapdragon-template-hooks.php';
+
+echo'<pre>';
+var_dump($snapdragon->translates);
+echo'</pre>';

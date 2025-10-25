@@ -22,6 +22,7 @@ add_action( 'snapdragon_main_header' , 'snapdragon_main_header_after' , 50 );
 add_action( 'snapdragon_main_header_button_group' , 'snapdragon_main_header_button_group_profile' , 10 );
 add_action( 'snapdragon_main_header_button_group' , 'snapdragon_main_header_button_group_wishlist' , 30 );
 add_action( 'snapdragon_main_header_button_group' , 'snapdragon_main_header_button_group_cart' , 50 );
+add_action( 'snapdragon_main_header_button_group' , 'snapdragon_main_header_button_group_translates' , 70 );
 
 add_action( 'snapdragon_main_header_navmenu' , 'snapdragon_main_header_navmenu_toggle' , 10 );
 add_action( 'snapdragon_main_header_navmenu' , 'snapdragon_main_header_navmenu_menuitems' , 20 );
@@ -34,6 +35,7 @@ add_action( 'wp_head_meta' , 'snapdragon_google_site_verification' , 10 );
 add_action( 'wp_head_meta' , 'snapdragon_barion_code_inject' , -1 );
 // add_action( 'wp_body_open' , 'snapdragon_preloader_animation' , 0 );
 add_action( 'wp_body_open' , 'snapdragon_svg_icons' , 0 );
+add_action( 'wp_footer' , 'snapdragon_spinner_js_template' , 0 );
 
 
 

@@ -9,21 +9,64 @@ defined('ABSPATH') or die('No script kiddies please!');
 
 
 
+if ( ! function_exists( 'snapdragon_main_header_button_group_translates' ) ) {
+	function snapdragon_main_header_button_group_translates() {
+		global $snapdragon;
+
+		if( ! is_object($snapdragon) 
+			|| ! property_exists( $snapdragon , 'defaults' )
+			|| ! is_a( $snapdragon->defaults , 'SnapdragonDefaults' )
+			|| ! is_a( $snapdragon->cookies , 'SnapdragonCookies')
+		) { return; }
+
+		$id = 'translate-desktop-main-nav';
+		$title = '';
+		?>
+		<div class="dropdown overflow-hidden group" id="dropdown-<?php esc_attr_e( $id ) ?>">
+			<button class="toggle button">
+				<img src="<?php // esc_attr_e( $img_url ); ?>" alt="<?php esc_attr_e( 'Selected language flag image' , 'snapdragon' )?>">
+				<svg class="pointer-events-none"></svg>
+				<span class="pointer-events-none"><?php // esc_attr_e( $title )?></span>
+				<svg class="icon pointer-events-none"><use xlink:href="#arrow-svg-icon" /></svg>
+			</button>
+			<div class="content rounded-md" id="dropdown-content-<?php // esc_attr_e( $id ) ?>" aria-labelledby="#dropdown-<?php esc_attr_e( $id ) ?>">
+			
+				<?php //print( $content ); ?>
+
+			</div>
+		</div>
+		<?php
+	}
+}
+
+
+
 if ( ! function_exists( 'snapdragon_main_header_button_group_profile' ) ) {
 	function snapdragon_main_header_button_group_profile() {
+		$title = __( 'Login' , 'snapdragon' );
+		
+		if ( is_user_logged_in() ) {
+			global $current_user;
+			$title = $current_user->display_name;
+		}
+
+		$item = (object) [
+			'ID' => 'profile',
+			'title' => $title,
+			'icon' => 'user',
+			'btn_class' => 'pr-2.5 pl-4 text-black/80 text-sm'
+		];
+		
+		ob_start();
 		?>
 
-		<button class="pl-1.5 pr-2">
-			<svg><use xlink:href="#user-svg-icon"/></svg>
-			
-			<span class="text-sm">
-				<?php esc_html_e( 'Login' , 'snapdragon' )?>
-			</span>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, vel, ratione aut consequuntur fugiat cum repudiandae et voluptas sed rem at placeat labore quasi sequi ducimus illo soluta hic! Est?</p>
 
-			<svg class="-ml-1.5 -mr-3" ><use xlink:href="#arrow-svg-icon"/></svg>
-		</button>
-
-		<?php
+		<?php 
+		$content = ob_get_contents();
+		ob_end_clean();
+		get_template_part( 'template-parts/components/dropdown' , 'button' , [ 'item'=>$item , 'content'=>$content ] );
+		
 	}
 }
 
@@ -31,19 +74,23 @@ if ( ! function_exists( 'snapdragon_main_header_button_group_profile' ) ) {
 
 if ( ! function_exists( 'snapdragon_main_header_button_group_wishlist' ) ) {
 	function snapdragon_main_header_button_group_wishlist() {
+		$item = (object) [
+			'ID' => 'wishlist',
+			'title' => __( 'Wishlist' , 'snapdragon' ),
+			'icon' => 'wishlist',
+			'btn_class' => 'pr-2.5 pl-4 text-black/80 text-sm'
+		];
+		
+		ob_start();
 		?>
 
-		<button class="pl-1.5 pr-2">
-			<svg><use xlink:href="#wishlist-svg-icon"/></svg>
-
-			<span class="text-sm">
-				<?php esc_html_e( 'Wishlist' , 'snapdragon' )?>
-			</span>
-			
-			<svg class="-ml-1.5 -mr-3" ><use xlink:href="#arrow-svg-icon"/></svg>
-		</button>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, at atque. Temporibus optio tempore officia magni odio nemo vero aperiam.</p>
 
 		<?php
+
+		$content = ob_get_contents();
+		ob_end_clean();
+		get_template_part( 'template-parts/components/dropdown' , 'button' , [ 'item'=>$item , 'content'=>$content ] );
 	}
 }
 
@@ -51,19 +98,23 @@ if ( ! function_exists( 'snapdragon_main_header_button_group_wishlist' ) ) {
 
 if ( ! function_exists( 'snapdragon_main_header_button_group_cart' ) ) {
 	function snapdragon_main_header_button_group_cart() {
-		?>
+		$item = (object) [
+			'ID' => 'cart',
+			'title' => __( 'Cart' , 'snapdragon' ),
+			'icon' => 'cart',
+			'btn_class' => 'pr-2.5 pl-4 text-sm bg-primary rounded-md text-white/70'
+		];
 		
-		<button class="bg-primary pl-2.5 text-white/80 rounded-md shadow-lg shadow-black/30">
-			<svg class="text-base" ><use xlink:href="#cart-svg-icon"/></svg>
-			
-			<span class="text-sm">
-				<?php esc_html_e( 'Cart' , 'snapdragon' )?>
-			</span>
-			
-			<svg class="-ml-1.5 -mr-3" ><use xlink:href="#arrow-svg-icon"/></svg>
-		</button>
+		ob_start();
+		?>
+
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, at atque.</p>
 
 		<?php
+
+		$content = ob_get_contents();
+		ob_end_clean();
+		get_template_part( 'template-parts/components/dropdown' , 'button' , [ 'item'=>$item , 'content'=>$content ] );
 	}
 }
 
@@ -74,7 +125,7 @@ if ( ! function_exists( 'snapdragon_main_header_navmenu_toggle' ) ) {
 		?>
 		
 		<button class="group" id="snapdragon-navmenu-toggle">
-			<span class="bars pointer-events-none">
+			<span class="bars">
 				<span class="bar transform -translate-y-[3px]"></span>
 				<span class="bar"></span>
 				<span class="bar transform translate-y-[3px]"></span>
@@ -153,6 +204,18 @@ if ( ! function_exists( 'snapdragon_main_header_before' ) ) {
 
 
 
+if ( ! function_exists( 'snapdragon_spinner_js_template' ) ) {
+	function snapdragon_spinner_js_template() {
+		?>
+		<template id="loader-animation-template">
+			<div class="spinner-animation"></div>
+		</template>
+		<?php
+	}
+}
+
+
+
 if ( ! function_exists( 'snapdragon_main_header_after' ) ) {
 	function snapdragon_main_header_after() {
 		?>
@@ -167,7 +230,7 @@ if ( ! function_exists( 'snapdragon_main_header_after' ) ) {
 if ( ! function_exists( 'snapdragon_main_header_section_brand' ) ) {
 	function snapdragon_main_header_section_brand() {		
 		?>
-		<main class="py-4 header-section">
+		<main class="py-6 header-section">
 			<div class="section-side brand">
 				
 				<?php
@@ -229,7 +292,7 @@ if ( ! function_exists( 'snapdragon_custom_brand_logo' ) ) {
 
 			?>
 				<a class="snapdragon-site-logo" href="<?php esc_attr_e( esc_url( home_url() ) ) ?>">
-					<img class="h-full pointer-events-none" src="<?php esc_attr_e( esc_url( $image[0] ) ) ?>" alt="<?php esc_attr_e( 'Site Logo' , 'snapdragon' )?>">
+					<img class="h-full" src="<?php esc_attr_e( esc_url( $image[0] ) ) ?>" alt="<?php esc_attr_e( 'Site Logo' , 'snapdragon' )?>">
 				</a>
 			<?php
 
@@ -751,7 +814,7 @@ if ( ! function_exists( 'snapdragon_svg_icons' ) ) {
             </symbol>  
             <symbol id="arrow-svg-icon" viewBox="0 0 20 20">
                 <path fill="currentColor" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
-            </symbol>  
+            </symbol> 
         </svg>
         <?php
     }

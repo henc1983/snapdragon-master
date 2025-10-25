@@ -15,35 +15,6 @@ if ( ! class_exists( 'SnapdragonDefaults' ) ) {
         private static $instance = null;
 
 
-
-        public const TRANSLATE_POST_NAME = 'snapdragon-language-option';
-        public const TRANSLATE_FLAGS_DIR = '/assets/images/languages/';
-        public const TRANSLATE_DEFAULT_SELECTED = 'hu_HU';
-        public const TRANSLATE_COOKIE_NAME = 'snapdragon_language_selected';
-        public const TRANSLATE_CODE_PAIRS = [
-            'de_DE' => 'Deutsch',
-            'en_US' => 'English (USA)',
-            'en_GB' => 'English (UK)',
-            'fr_FR' => 'Français',
-            'hu_HU' => 'Magyar',
-            'pl_PL' => 'Polski',
-            'ro_RO' => 'Română',
-            'es_ES' => 'Español',
-            'it_IT' => 'Italiano',
-            'nl_NL' => 'Nederlands',
-            'pt_PT' => 'Português',
-            'sv_SE' => 'Svenska',
-            'fi_FI' => 'Suomi',
-            'cs_CZ' => 'Čeština',
-            'ja_JP' => '日本語',
-            'zh_CN' => '中文 (简体)',
-            'zh_TW' => '中文 (繁體)',
-            'ru_RU' => 'Русский',
-            'ar_AR' => 'العربية',
-            'tr_TR' => 'Türkçe',
-        ];
-
-
         public const COOKIE_EXCLUSION_SELECTION_VALUES = ['language', 'product'];
         public const COOKIE_EXP_TIME = "+1 day";
         public const COOKIE_ACCEPTED_NAME = 'snapdragon_cookies_accepted';
@@ -110,6 +81,10 @@ if ( ! class_exists( 'SnapdragonDefaults' ) ) {
 			return self::$instance;
 		}
 
+
+        public function __construct() {
+            return $this;
+        }
     }
 }
 

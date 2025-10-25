@@ -46,7 +46,7 @@ const config = {
 const configContent = Object.assign({}, config, {
     name: "configContent",
     entry: {
-        'main-desktop': ['./src/scripts/dropdown-navitem.js'],
+        'main-desktop': [ './src/scripts/dropdown.js' , './src/scripts/ajax-searchbar.js' ],
     },
     plugins: [new MiniCssExtractPlugin(
         {

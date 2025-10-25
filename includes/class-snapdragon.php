@@ -59,6 +59,8 @@ if ( ! class_exists( 'Snapdragon' ) ) :
 
             $this->init_defaults();
             $this->init_options();
+            $this->init_translates();
+            $this->init_cookies();
             $this->init_setup();
 		}
 		
@@ -73,6 +75,20 @@ if ( ! class_exists( 'Snapdragon' ) ) :
 
         private function init_options() {
             $this->options = $this->check_file(THEME_DIR . '/includes/helpers/options-class.php');
+			return $this;
+        }
+		
+
+
+        private function init_translates() {
+            $this->translates = $this->check_file(THEME_DIR . '/includes/helpers/translates-class.php');
+			return $this;
+        }
+		
+
+
+        private function init_cookies() {
+            $this->cookies = $this->check_file(THEME_DIR . '/includes/helpers/cookies-class.php');
 			return $this;
         }
 		
